@@ -5,7 +5,7 @@ import RowText from "../components/RowText";
 import { weatherType } from "../utilities/WeatherType";
 
 const CurrentWeather = () => {
-	const { wrapper, container, temp, feels, highLowWrapper, highLow, bodyWrapper, description, message } = styles;
+	const { wrapper, container, temp, feels, highLowWrapper, highLow, bodyWrapper, description } = styles;
 
 	return (
 		<SafeAreaView style={wrapper}>
@@ -26,7 +26,7 @@ const CurrentWeather = () => {
 				messageTwo={weatherType["Thunderstorm"].message}
 				containerStyles={bodyWrapper}
 				messageOneStyles={description}
-				messageTwoStyles={message}
+				messageTwoStyles={styles.message}
 			/>
 		</SafeAreaView>
 	);
