@@ -11,9 +11,8 @@ export const useGetWeather = () => {
 
 	const fetchWeatherData = async () => {
 		try {
-			console.log("I'm fetching weather data");
 			const response = await fetch(
-				`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`
+				`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
 			);
 			const data = await response.json();
 			setWeather(data);
@@ -30,8 +29,6 @@ export const useGetWeather = () => {
 			if (status !== "granted") {
 				setError("permission to access location was denied");
 				return;
-			} else {
-				console.log("it should work");
 			}
 			let location = await Location.getCurrentPositionAsync({});
 			setLat(location.coords.latitude);
