@@ -12,25 +12,25 @@ const CurrentWeather = ({ weatherData }) => {
 		weather,
 	} = weatherData;
 
-	const weatherConditions = weather[0].main;
+	const weatherConditions = weather[0]?.main;
 
 	return (
-		<SafeAreaView style={[wrapper, { backgroundColor: weatherType[weatherConditions].backgroundColor }]}>
+		<SafeAreaView style={[wrapper, { backgroundColor: weatherType[weatherConditions]?.backgroundColor }]}>
 			<View style={container}>
-				<Feather name={weatherType[weatherConditions].icon} size={100} color="white" />
-				<Text style={tempStyle}>{temp}</Text>
-				<Text style={feels}>{`Feels like ${feels_like}`}</Text>
+				<Feather name={weatherType[weatherConditions]?.icon} size={100} color="white" />
+				<Text style={tempStyle}>{temp}°</Text>
+				<Text style={feels}>{`Feels like ${feels_like}°`}</Text>
 				<RowText
-					messageOne={`High: ${temp_max}`}
-					messageTwo={`Low: ${temp_min}`}
+					messageOne={`High: ${temp_max}° `}
+					messageTwo={`Low: ${temp_min}°`}
 					containerStyles={highLowWrapper}
 					messageOneStyles={highLow}
 					messageTwoStyles={highLow}
 				/>
 			</View>
 			<RowText
-				messageOne={weather[0].description}
-				messageTwo={weatherType[weatherConditions].message}
+				messageOne={weather[0]?.description}
+				messageTwo={weatherType[weatherConditions]?.message}
 				containerStyles={bodyWrapper}
 				messageOneStyles={description}
 				messageTwoStyles={styles.message}
@@ -42,7 +42,6 @@ const CurrentWeather = ({ weatherData }) => {
 const styles = {
 	wrapper: {
 		flex: 1,
-		backgroundColor: "pink",
 	},
 	container: {
 		flex: 1,
@@ -71,10 +70,10 @@ const styles = {
 		marginBottom: 40,
 	},
 	description: {
-		fontSize: 48,
+		fontSize: 43,
 	},
 	message: {
-		fontSize: 30,
+		fontSize: 25,
 	},
 };
 
